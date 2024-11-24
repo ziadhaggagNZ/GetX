@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/controller/homecontroller.dart';
 
 
 class Home extends StatelessWidget {
@@ -8,32 +9,30 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
+        body: GetX<HomeController>(
+          init: HomeController(),
+          builder: (controller)=> Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
               child: MaterialButton(
-                child: Text("page 1"),
+                child: Text("+"),
                 onPressed: () {
-                Get.toNamed("/page1");
+                  controller.increment();
               },),
             ),
                         Center(
-              child: MaterialButton(
-                child: Text("page 2"),
-                onPressed: () {
-               Get.toNamed("/page2");
-              },),
+              child: Text("${controller.counter.value}"),
             ),
                         Center(
               child: MaterialButton(
-                child: Text("page 3"),
+                child: Text("__"),
                 onPressed: () {
-                Get.toNamed("/page3");
+               controller.decrement();
               },),
             ),
           ],
-        ),
+        ),)
       );
   }
 }
