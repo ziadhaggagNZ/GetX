@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: GetX<HomeController>(
+        body: GetBuilder<HomeController>(
           init: HomeController(),
           builder: (controller)=> Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
               },),
             ),
                         Center(
-              child: Text("${controller.counter.value}"),
+              child: Text("${controller.counter}"),
             ),
                         Center(
               child: MaterialButton(
