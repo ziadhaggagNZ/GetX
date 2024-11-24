@@ -4,14 +4,14 @@ import 'package:getx/controller/homecontroller.dart';
 
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+   Home({super.key});
+
+  HomeController controller = Get.put(HomeController() , permanent: true);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: GetBuilder<HomeController>(
-          init: HomeController(),
-          builder: (controller)=> Row(
+        body: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
@@ -22,7 +22,10 @@ class Home extends StatelessWidget {
               },),
             ),
                         Center(
-              child: Text("${controller.counter}"),
+              child: GetBuilder<HomeController>(
+          builder: (controller)=> Text("${controller.counter}"),
+              )
+              
             ),
                         Center(
               child: MaterialButton(
@@ -32,7 +35,7 @@ class Home extends StatelessWidget {
               },),
             ),
           ],
-        ),)
-      );
+        ));
+      
   }
 }
