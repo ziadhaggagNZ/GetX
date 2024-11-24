@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:getx/controller/homeController.dart';
 import 'package:getx/view/home.dart';
 import 'package:getx/view/page1.dart';
 import 'package:getx/view/page2.dart';
 import 'package:getx/view/page3.dart';
 
 void main() {
-  runApp(const MyApp());
+  final controller = Get.lazyPut(()=> HomeController());
+  runApp( MyApp());
 }
 
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   MyApp({super.key});
+  final controller = Get.lazyPut(()=> HomeController());
 
   @override
   Widget build(BuildContext context) {
