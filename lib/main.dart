@@ -15,7 +15,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
    MyApp({super.key});
-  final controller = Get.lazyPut(()=> HomeController());
+  final controller = Get.lazyPut(()=> HomeController() , fenix: true);
 
   @override
   Widget build(BuildContext context) {

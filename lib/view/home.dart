@@ -19,6 +19,7 @@ HomeController controller = Get.find();
                 child: Text("+"),
                 onPressed: () {
                   controller.increment();
+                  Get.snackbar("increment", "number increment");
               },),
             ),
                         Center(
@@ -32,6 +33,8 @@ HomeController controller = Get.find();
                 child: Text("__"),
                 onPressed: () {
                controller.decrement();
+                Get.snackbar("decrement", "number decrement");
+
               },),
             ),
           ],
